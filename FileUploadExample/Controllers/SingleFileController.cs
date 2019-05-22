@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FileUploadExample.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace FileUploadExample.Controllers
 {
@@ -24,11 +26,18 @@ namespace FileUploadExample.Controllers
 
             if (ModelState.IsValid)
             {
+                var photo = item.Photo;
                 //Check file extension is a photo
+                string extension = 
+                       Path.GetExtension(photo.FileName);
+                if(extension == ".png" || extension == ".jpg")
+                {
 
+                }
                 //reduce photo size
 
                 //generate unique name to retrieve later
+                string newFileName = Guid.NewGuid().ToString();
 
                 //store photo on file system and reference in DB
                 return View();
