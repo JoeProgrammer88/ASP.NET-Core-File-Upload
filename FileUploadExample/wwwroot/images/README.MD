@@ -1,0 +1,1 @@
+The images directory must be present for files to be uploaded
