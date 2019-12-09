@@ -58,6 +58,7 @@ namespace FileUploadExample.Controllers
                         {
                             await photo.CopyToAsync(fs);
                         }
+                        return RedirectToAction("Index", "Home");
                     }
 
                     return View();
